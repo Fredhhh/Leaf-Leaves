@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{8BAC7BF2-D8A7-6122-23E4-0A8BFFC3D8B0}</ProjectGuid>
+	<ProjectGuid>{356689EB-052F-CF96-E6E5-65C0E813E99D}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -50,11 +50,11 @@
      <Compile Include="Assets\Scripts\Camera Scripts\SmoothFollow.js" />
      <Compile Include="Assets\Scripts\Camera Scripts\SmoothLookAt.js" />
      <Compile Include="Assets\Scripts\Camera_2DFollow.js" />
-     <Compile Include="Assets\Scripts\Character Controllers\Sources\Scripts\CharacterMotor.js" />
-     <Compile Include="Assets\Scripts\Character Controllers\Sources\Scripts\FPSInputController.js" />
-     <Compile Include="Assets\Scripts\Character Controllers\Sources\Scripts\PlatformInputController.js" />
-     <Compile Include="Assets\Scripts\Character Controllers\Sources\Scripts\ThirdPersonCamera.js" />
-     <Compile Include="Assets\Scripts\Character Controllers\Sources\Scripts\ThirdPersonController.js" />
+     <Compile Include="Assets\Scripts\Character Scripts\Sources\Scripts\CharacterMotor.js" />
+     <Compile Include="Assets\Scripts\Character Scripts\Sources\Scripts\FPSInputController.js" />
+     <Compile Include="Assets\Scripts\Character Scripts\Sources\Scripts\PlatformInputController.js" />
+     <Compile Include="Assets\Scripts\Character Scripts\Sources\Scripts\ThirdPersonCamera.js" />
+     <Compile Include="Assets\Scripts\Character Scripts\Sources\Scripts\ThirdPersonController.js" />
      <Compile Include="Assets\Scripts\General Scripts\DragRigidbody.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

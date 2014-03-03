@@ -1,0 +1,48 @@
+Sånn at du fks på den greien i helgen hadde ansvar for koding av animasjon, right?
+
+
+//Felles: Utarbeider dokument
+
+//forarbeid
+Felles: notere ned all nødvendig kode
+Fredh: Utarbeider scene for prototype i Unity som utgangspunkt for all kodeutvikling
+Aurora: Arbeider med char-control
+
+//prosjekt
+
+//oppdeling av kodeutvikling
+
+Kodeutvikling
+
+Fredh:  Capture object
+	Create Egg
+	Die on spikes
+	
+
+Aurora: Talk to object
+	Insert name
+
+
+Sceneprototyping
+
+Fredh: Puzzlerom
+Aurora: Problem/start/slutt
+
+
+tekst/GUI
+-snakkebobler
+-infobar
+-escapemeny
+
+Kode levelovergang/ferdigstille spill/
+
+teste med testpersoner
+
+Visuell utvikling
+-bakgrunner
+-forgrunner
+-objekter
+
+JEG GJØR MANGW EENDRINGER WOHO
+
+<3

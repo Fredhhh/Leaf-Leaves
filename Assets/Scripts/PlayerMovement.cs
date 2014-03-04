@@ -4,8 +4,8 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
 	public float speed = 4.0f;
 	public float inSpeed = 4.0f;
-	public bool isGrounded;
 	public bool facingRight;
+	public bool isGrounded;
 
 
 	// Update is called once per frame
@@ -44,16 +44,15 @@ public class PlayerMovement : MonoBehaviour {
 		//if(Input.GetKey(KeyCode.S))
 			//transform.Translate(new Vector3(0, 1, 0) * inSpeed * Time.deltaTime);
 
-
 		if(Input.GetKey(KeyCode.Space)&& isGrounded==true){
 			this.gameObject.rigidbody2D.AddForce(Vector3.up * 260);
-
+			
 			isGrounded = false;
 		}
 		Debug.Log (isGrounded);
+		
 
 	}
-
 
 	void OnCollisionEnter2D (Collision2D c)
 	{

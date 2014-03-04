@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
 {
 		public float speed = 4.0f;
 		public float inSpeed = 4.0f;
-		public static bool isGrounded;
+		public bool isGrounded;
 		public bool facingRight;
 
 		//Inventory 
@@ -87,12 +87,7 @@ public class Player : MonoBehaviour
 				if (c.gameObject.name.Equals ("FallTrigger")) {
 						state.playerDead = true;
 
-				}
-				if (c.gameObject.tag.Equals ("Ground")) {
-						isGrounded = true;
-				}
-				if (c.gameObject.tag.Equals ("Item")) {
-						isGrounded = true;
+
 				}
 				if (c.gameObject.name.Equals ("doorExit")) {
 						Application.LoadLevel (Application.loadedLevel); // Should reflect the current level

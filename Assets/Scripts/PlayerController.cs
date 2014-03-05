@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void Update () {
+
+
 		//grounded = false;
 		targetSpeed = Input.GetAxisRaw("Horizontal") * speed;
 		currentSpeed = IncrementTowards(currentSpeed, targetSpeed,acceleration);
@@ -58,22 +60,24 @@ public class PlayerController : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D c)
 	{
-
+		
 		//if (c.gameObject.name.Equals ("FallTrigger")) {
-			//state.playerDead = true;
-			
+		//state.playerDead = true;
+		
 		//}
 		if (c.gameObject.tag.Equals ("Ground")) {
-						grounded = true;
-				} 
+			grounded = true;
+			Debug.Log("GROUNDED!");
+			
+		} 
 		if (c.gameObject.tag.Equals ("Item")) {
-						grounded = true;
-				}
-	
-
+			grounded = true;
+		}
+		
+		
 		if (c.gameObject.name.Equals ("doorExit")) {
 			Application.LoadLevel (Application.loadedLevel); // Should reflect the current level
 		}
 	}
-
+	
 }

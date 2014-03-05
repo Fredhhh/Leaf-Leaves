@@ -29,14 +29,14 @@ public class Respawn : MonoBehaviour {
 			if (collider.tag.Equals("Death"))
 			{
 				hitSpikes = true;
-				Debug.Log("RESPAWN!");
+				//Debug.Log("RESPAWN!");
 			}
 	
 	
 			if (hitSpikes==true)
 			{
 				gameObject.transform.position = spawnPoint.transform.position;
-			Debug.Log ("HIT");
+				//Debug.Log ("HIT");
 			}
 
 			hitSpikes = false;

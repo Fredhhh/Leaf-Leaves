@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 [RequireComponent(typeof(PlayerPhysics))]
+
+
 public class PlayerController : MonoBehaviour {
 
 	// Player Handling
@@ -18,8 +20,10 @@ public class PlayerController : MonoBehaviour {
 	[HideInInspector]
 	public bool grounded;
 	
+
 	void Start () {
 		playerPhysics = GetComponent<PlayerPhysics>();
+
 	}
 	
 	void Update () {

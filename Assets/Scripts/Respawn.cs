@@ -3,16 +3,21 @@ using System.Collections;
 
 public class Respawn : MonoBehaviour {
 
-		public bool hitSpikes = false;
-		public GameObject spawnPoint = GameObject.FindGameObjectWithTag("Spawning");
+	bool hitSpikes;
+	public GameObject spawnPoint;
+
+		
 
 		// Use this for initialization
 		void Start () {
+		hitSpikes = false;
+		spawnPoint = GameObject.FindGameObjectWithTag("Spawning");
 
 		}
 
 		// Update is called once per frame
 		void Update () {
+
 
 	
 	}
@@ -31,6 +36,7 @@ public class Respawn : MonoBehaviour {
 			if (hitSpikes==true)
 			{
 				gameObject.transform.position = spawnPoint.transform.position;
+			Debug.Log ("HIT");
 			}
 
 			hitSpikes = false;

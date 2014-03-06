@@ -4,11 +4,13 @@ using System.Collections;
 public class CreateEgg : MonoBehaviour {
 
 	public GameObject eggPrefab;
-	public GameObject egg;
+	public GameObject spawnPoint;
+	public GameObject player;
 
 	// Use this for initialization
 	void Start () {
-		eggPrefab = GameObject.FindGameObjectWithTag("Egg");
+		spawnPoint.transform.position = GameObject.FindGameObjectWithTag("eggSpawn").transform.position;
+		player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
@@ -16,8 +18,8 @@ public class CreateEgg : MonoBehaviour {
 	
 		if (Input.GetKeyDown(KeyCode.LeftShift))
 		{
-			egg = Instantiate(eggPrefab, transform.FindGameObjectWithTag("eggSpawn").transform.position, Quaternion.identity);
-			egg.tag = "Egg";
+			GameObject egg = (GameObject)Instantiate(eggPrefab, spawnPoint.transform.position, Quaternion.identity);
+			egg.transform.position = spawnPoint.transform.position;
 		}
 
 	}

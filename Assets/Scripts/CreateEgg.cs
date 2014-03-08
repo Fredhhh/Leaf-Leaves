@@ -6,11 +6,19 @@ public class CreateEgg : MonoBehaviour {
 	public GameObject eggPrefab;
 	public GameObject spawnPoint;
 	public GameObject player;
+	public int eggCount;
+	public float currentTime;
+	public float compareTime;
+
+	private bool canPlace;
 
 	// Use this for initialization
 	void Start () {
 		spawnPoint.transform.position = GameObject.FindGameObjectWithTag("eggSpawn").transform.position;
 		player = GameObject.FindGameObjectWithTag("Player");
+
+		int eggCount = 0;
+		currentTime = 0;
 	}
 	
 	// Update is called once per frame
@@ -18,9 +26,55 @@ public class CreateEgg : MonoBehaviour {
 	
 		if (Input.GetKeyDown(KeyCode.LeftShift))
 		{
-			GameObject egg = (GameObject)Instantiate(eggPrefab, spawnPoint.transform.position, Quaternion.identity);
-			egg.transform.position = spawnPoint.transform.position;
+			if (canPlace){
+
+
+				GameObject egg = (GameObject)Instantiate(eggPrefab, spawnPoint.transform.position, Quaternion.identity);
+				egg.transform.position = spawnPoint.transform.position;
+
+				eggCount++;
+			}
 		}
 
+		destroyEgg();
+
+
+	} //update
+	
+
+	void destroyEgg (){
+
+		if (eggCount>=4)
+		{
+			canPlace = false;
+
+			foreach (GameObject gO in GameObject.FindGameObjectsWithTag("Egg")) 
+			{
+				
+				compareTime = gO.GetComponent<EggDestroy>().getTime();
+				
+				if (compareTime<=currentTime)
+				{
+					
+					currentTime = compareTime;
+					Destroy (gO);
+					eggCount--;
+
+					Debug.Log ("tahoi");
+					
+				}
+				
+			}
+			
+			Debug.Log ("woop");
+		}
+
+		if (eggCount<4)
+		{
+			canPlace = true;
+		}
+
+
 	}
+
 }

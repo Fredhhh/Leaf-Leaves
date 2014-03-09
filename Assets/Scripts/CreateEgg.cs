@@ -29,8 +29,8 @@ public class CreateEgg : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.LeftShift))
 		{
-			if (canPlace==true){
-
+			if (canPlace==true)
+			{
 
 				GameObject egg = (GameObject)Instantiate(eggPrefab, spawnPoint.transform.position, Quaternion.identity);
 				egg.transform.position = spawnPoint.transform.position;
@@ -46,7 +46,7 @@ public class CreateEgg : MonoBehaviour {
 
 	void destroyEgg (){
 
-		if (eggCount>=4)
+		if (eggCount>=6)
 		{
 			canPlace = false;
 
@@ -55,7 +55,7 @@ public class CreateEgg : MonoBehaviour {
 				
 				compareTime = gO.GetComponent<EggDestroy>().getTime();
 				
-				if (compareTime>=currentTime)
+				if (compareTime>currentTime)
 				{
 					
 					currentTime = compareTime;
@@ -70,7 +70,7 @@ public class CreateEgg : MonoBehaviour {
 
 		}
 
-		if (eggCount<4)
+		if (eggCount<6)
 		{
 			canPlace = true;
 		}

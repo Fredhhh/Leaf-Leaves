@@ -56,11 +56,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D c)
 	{
-		if (c.gameObject.tag.Equals ("Ground"))
+		if (c.gameObject.tag.Equals ("Ground")||c.gameObject.tag.Equals ("Egg"))
 		{
-			isGrounded = true;
-		}
-		if (c.gameObject.tag.Equals ("Item")) {
 			isGrounded = true;
 		}
 	}

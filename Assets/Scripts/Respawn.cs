@@ -22,11 +22,12 @@ public class Respawn : MonoBehaviour {
 		}
 
 		// Update is called once per frame
-		void Update () {
+		void Update () 
+		{
 
 
 	
-	}
+		}
 
 		void OnTriggerEnter2D(Collider2D collider)
 		{
@@ -36,15 +37,22 @@ public class Respawn : MonoBehaviour {
 				hitSpikes = true;
 				Debug.Log("RESPAWN!");
 
-			for (var i=0; i < spawnPoint.Length; i+=0)
-				{
-					gameObject.transform.position = spawnPoint[0].transform.position;
-					Debug.Log ("HIT");
-				}
+				gameObject.transform.position = spawnPoint[0].transform.position;
+				Debug.Log ("HIT");
 				
 			}
-	
-			hitSpikes = false;
+
+			if (collider.tag.Equals("Death2"))
+			{
+				hitSpikes = true;
+				Debug.Log("RESPAWN!");
+				
+				gameObject.transform.position = spawnPoint[1].transform.position;
+				Debug.Log ("HIT");
+				
+			}
+		
+		hitSpikes = false;
 		}
 
 

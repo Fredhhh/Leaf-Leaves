@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-[RequireComponent(typeof(PlayerPhysics))]
+//[RequireComponent(typeof(PlayerPhysics))]
 
 
 public class PlayerController : MonoBehaviour {
@@ -15,35 +15,34 @@ public class PlayerController : MonoBehaviour {
 	private float targetSpeed;
 	private Vector2 amountToMove;
 	
-	private PlayerPhysics playerPhysics;
+	//private PlayerPhysics playerPhysics;
 
-	[HideInInspector]
 	public bool grounded;
 	
 
 	void Start () {
-		playerPhysics = GetComponent<PlayerPhysics>();
-
+		//playerPhysics = GetComponent<PlayerPhysics>();
+		grounded = false;
 	}
 	
 	void Update () {
 
 
-		//grounded = false;
 		targetSpeed = Input.GetAxisRaw("Horizontal") * speed;
 		currentSpeed = IncrementTowards(currentSpeed, targetSpeed,acceleration);
 		
-		if (grounded==true) {
+		if (grounded) {
 			amountToMove.y = 0;
 			
 			//Jump
 			if (Input.GetButtonDown("Jump")) {
-				amountToMove.y = jumpHeight;	
+				amountToMove.y = jumpHeight;
+				grounded=false;
 			}
 		}
 		amountToMove.x = currentSpeed;
 		amountToMove.y -= gravity * Time.deltaTime;
-		playerPhysics.Move (amountToMove * Time.deltaTime);
+		Move (amountToMove * Time.deltaTime);
 	}
 	
 	// Increase n towards target by speed
@@ -67,17 +66,21 @@ public class PlayerController : MonoBehaviour {
 		//}
 		if (c.gameObject.tag.Equals ("Ground")) {
 			grounded = true;
-			Debug.Log("GROUNDED!");
-			
+			//Debug.Log("GROUNDED!");	
 		} 
-		if (c.gameObject.tag.Equals ("Item")) {
-			grounded = true;
-		}
+
 		
-		
-		if (c.gameObject.name.Equals ("doorExit")) {
+		/*if (c.gameObject.name.Equals ("doorExit")) {
 			Application.LoadLevel (Application.loadedLevel); // Should reflect the current level
-		}
+		}*/
 	}
-	
+    public void Move(Vector2 moveAmount) {
+				float deltaY = moveAmount.y;
+				float deltaX = moveAmount.x;
+				//Vector2 p = transform.position;
+				//transform.Translate(moveAmount);
+				Vector2 finalTransform = new Vector2 (deltaX, deltaY);
+		
+				transform.Translate (finalTransform);
+		}
 }

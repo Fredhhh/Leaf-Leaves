@@ -9,9 +9,13 @@ public class PlayerMovement : MonoBehaviour {
 	public float jumpHeight = 300;
 	public float ray1 = 1f;
 	public bool isGrounded;
+<<<<<<< HEAD
 	//public bool isGrounded;
 
 
+=======
+	public float jumpHeight = 300;
+>>>>>>> origin/Fredhhh
 
 
 	// Update is called once per frame
@@ -23,9 +27,13 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	void Update () {
 
+<<<<<<< HEAD
 
 		
 		if (Input.GetKey (KeyCode.D)) {
+=======
+				if (Input.GetKey (KeyCode.D)) {
+>>>>>>> origin/Fredhhh
 						transform.Translate (Vector3.right * speed * Time.deltaTime);
 
 						if (facingRight == false) {
@@ -47,6 +55,7 @@ public class PlayerMovement : MonoBehaviour {
 						}
 
 				}
+<<<<<<< HEAD
 
 				
 		if (Input.GetButtonDown("Jump") && isGrounded) {
@@ -57,6 +66,23 @@ public class PlayerMovement : MonoBehaviour {
 						}
 
 		}
+=======
+				if (Input.GetKey (KeyCode.A) && Input.GetKey (KeyCode.D)) {
+				} 
+				else {
+						if (Input.GetKey (KeyCode.Space) && isGrounded) {
+								//transform.Translate (Vector3.up * jumpheight * speed * Time.deltaTime);
+								this.gameObject.rigidbody2D.AddForce (Vector3.up * jumpHeight);
+								isGrounded = false;
+						}
+				}
+				
+
+		}
+		//Debug.Log (isGrounded);
+		
+
+>>>>>>> origin/Fredhhh
 
 	void OnTriggerEnter2D (Collider2D c)
 	{

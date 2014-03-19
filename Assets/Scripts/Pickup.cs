@@ -15,14 +15,13 @@ public class Pickup : MonoBehaviour {
 	void Start () {
 
 		i = 0;
+		currentItems = 0;
 
 		canPickup = true;
 
 		spawnPoint.transform.position = GameObject.FindGameObjectWithTag("eggSpawn").transform.position;
 
-		currentItems = 0;
 		heldItems = new GameObject[3]{null, null, null};
-
 	
 	}
 	
@@ -78,20 +77,32 @@ public class Pickup : MonoBehaviour {
 					currentItems = currentItems + 1;
 					i++;
 
-					if (Fruit.name.Equals("Red"))
-					{
-						Debug.Log("RED");
-					}
-
 				}
-
-			
 			}
-
 		} 
 
-	} 
+		if (c.tag.Equals ("Basket"))
+		{
 
+			if (heldItems[0].name.Equals("FruitPurple") && heldItems[1].name.Equals("FruitPurple") && heldItems[2].name.Equals("FruitYellow"))
+			{
+				Debug.Log("YES, BASKET COMPLETED!");
+			}
 
+			else 
 
-}
+				Debug.Log("Complete the basket!");
+
+			for (i = 0; i < heldItems.Length; i++)
+			{
+				if (heldItems[i] == null)
+				{
+					Debug.Log("Complete the basket!");
+				}
+
+			}
+
+		}
+	}
+} 
+

@@ -64,8 +64,6 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			isGrounded = true;
 		}
-<<<<<<< HEAD
-=======
 		
 		else
 			
@@ -75,7 +73,6 @@ public class PlayerMovement : MonoBehaviour {
 	void OnTriggerExit2D (Collider2D u)
 	{
 				isGrounded = false;
->>>>>>> origin/Aurora
 	}
 
 

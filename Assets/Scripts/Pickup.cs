@@ -62,47 +62,35 @@ public class Pickup : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D c)
 	{
 
-		if (canPickup)
-		{
+				if (canPickup) {
 
-			foreach (GameObject Fruit in GameObject.FindGameObjectsWithTag("Fruit"))
-			{
+						foreach (GameObject Fruit in GameObject.FindGameObjectsWithTag("Fruit")) {
 
-				if (c.gameObject == Fruit)
-				{
-					heldItems[i] = Fruit.gameObject; 
-					Fruit.gameObject.renderer.enabled = false;
-					Fruit.gameObject.collider2D.enabled = false;
+								if (c.gameObject == Fruit) {
+										heldItems [i] = Fruit.gameObject; 
+										Fruit.gameObject.renderer.enabled = false;
+										Fruit.gameObject.collider2D.enabled = false;
 
-					currentItems = currentItems + 1;
-					i++;
+										currentItems++;
+										i++;
 
-				}
-			}
-		} 
+								}
+						}
+				} 
 
-		if (c.tag.Equals ("Basket"))
-		{
-
-			if (heldItems[0].name.Equals("FruitPurple") && heldItems[1].name.Equals("FruitPurple") && heldItems[2].name.Equals("FruitYellow"))
-			{
-				Debug.Log("YES, BASKET COMPLETED!");
-			}
-
-			else 
-
-				Debug.Log("Complete the basket!");
-
-			for (i = 0; i < heldItems.Length; i++)
-			{
-				if (heldItems[i] == null)
-				{
-					Debug.Log("Complete the basket!");
+				if (c.tag.Equals ("Basket")) {
+						if (i == 3) {
+								if (heldItems [0].name.Equals ("FruitPurple") && heldItems [1].name.Equals ("FruitPurple") && heldItems [2].name.Equals ("FruitYellow")) {
+										Debug.Log ("YES, BASKET COMPLETED!");
+								} else 
+										Debug.Log ("Wrong fruit!");
+						} else {
+								Debug.Log ("Complete the basket!");
+						}
 				}
 
-			}
 
-		}
+
 	}
 } 
 

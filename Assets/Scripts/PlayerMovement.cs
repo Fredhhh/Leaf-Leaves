@@ -72,7 +72,16 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	void OnTriggerExit2D (Collider2D u)
 	{
-		isGrounded = false;
+		if (u.gameObject.tag.Equals ("Ground")||u.gameObject.tag.Equals ("Egg"))
+		{
+			isGrounded = false;
+		}
+
+
+		if (u.gameObject.tag.Equals("Basket"))
+		{
+			isGrounded = true;
+		}
 	}
 	
 	

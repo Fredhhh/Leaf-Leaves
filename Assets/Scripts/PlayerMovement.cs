@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour {
 	
 	void OnTriggerEnter2D (Collider2D c)
 	{
-		if (c.gameObject.tag.Equals ("Ground")||c.gameObject.tag.Equals ("Egg"))
+		if (c.gameObject.tag.Equals ("Ground")||c.gameObject.tag.Equals ("Egg")||c.gameObject.tag.Equals ("Hen"))
 		{
 			isGrounded = true;
 		}
@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	void OnTriggerExit2D (Collider2D u)
 	{
-		if (u.gameObject.tag.Equals ("Ground")||u.gameObject.tag.Equals ("Egg"))
+		if (u.gameObject.tag.Equals ("Ground")||u.gameObject.tag.Equals ("Egg")||u.gameObject.tag.Equals("Hen"))
 		{
 			isGrounded = false;
 		}

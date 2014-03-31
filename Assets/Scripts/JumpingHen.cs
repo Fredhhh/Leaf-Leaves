@@ -15,13 +15,12 @@ public class JumpingHen : MonoBehaviour {
 		henSpeed = 2;
 		left = true;
 		leftTrigBool = false;
+		jumpHeightHen = Random.Range(80 , 150);
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-		jumpHeightHen = Random.Range(50 , 100);
 
 
 
@@ -59,9 +58,14 @@ public class JumpingHen : MonoBehaviour {
 	{
 
 
-		if (c.gameObject.tag.Equals ("Ground")||c.gameObject.tag.Equals ("Egg"))
+		if (c.gameObject.tag.Equals ("Ground"))
 		{
 			HenisGrounded = true;
+		}
+
+		if (c.gameObject.tag.Equals ("Egg")||c.gameObject.tag.Equals("Hen"))
+		{
+			HenisGrounded = false;
 		}
 
 		//else
@@ -76,14 +80,14 @@ public class JumpingHen : MonoBehaviour {
 
 		if (c.gameObject.name.Equals ("LeftTrig"))
 		{
-			jumpHeightHen = Random.Range(120 , 180);
+			jumpHeightHen = Random.Range(250 , 300);
 			henSpeed = 4;
 			left = true;
 		}
 
 		if (c.gameObject.name.Equals ("RightTrig"))
 		{
-			jumpHeightHen = Random.Range(120 , 180);
+			jumpHeightHen = Random.Range(250 , 300);
 			henSpeed = 4;
 			left = false;
 		}
@@ -94,10 +98,10 @@ public class JumpingHen : MonoBehaviour {
 
 	void OnTriggerExit2D (Collider2D u)
 	{
-		if (u.gameObject.tag.Equals ("Ground")||u.gameObject.tag.Equals ("Egg")||u.gameObject.name.Equals("LeftTrig")||u.gameObject.name.Equals("RightTrig"))
+		if (u.gameObject.tag.Equals ("Ground")||u.gameObject.tag.Equals ("Egg")||u.gameObject.tag.Equals("Hen")||u.gameObject.name.Equals("LeftTrig")||u.gameObject.name.Equals("RightTrig")||u.gameObject.tag.Equals("Player"))
 		{
 			HenisGrounded = false;
-			jumpHeightHen = Random.Range(50 , 100);
+			jumpHeightHen = Random.Range(80 , 150);
 			henSpeed = 2;
 		}
 	}

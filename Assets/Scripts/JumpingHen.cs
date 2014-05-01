@@ -15,7 +15,7 @@ public class JumpingHen : MonoBehaviour {
 		henSpeed = 2;
 		left = true;
 		leftTrigBool = false;
-		jumpHeightHen = Random.Range(80 , 150);
+		jumpHeightHen = Random.Range(30 , 80);
 	
 	}
 	
@@ -23,13 +23,19 @@ public class JumpingHen : MonoBehaviour {
 	void Update () {
 
 
+		if (transform.position.y > 10 && transform.position.y < 18)
+		{
+			HenisGrounded = false;
+
+		}
 
 		if (transform.position.x > 22 && transform.position.x < 28)
 		{
 			left = true;
+
 		}
 
-		if (transform.position.x > 5 && transform.position.x < 10)
+		if (transform.position.x > 1 && transform.position.x < 7)
 		{
 			left = false;
 		}
@@ -37,12 +43,14 @@ public class JumpingHen : MonoBehaviour {
 		if (left)
 		{
 			transform.Translate (Vector3.left * henSpeed * Time.deltaTime);
+			gameObject.transform.localScale = new Vector3 (0.15f, 0.15f, 0.15f);
 		}
 
 
 		else
 		{
 			transform.Translate (Vector3.right * henSpeed * Time.deltaTime);
+			gameObject.transform.localScale = new Vector3 (-0.15f, 0.15f, 0.15f);
 		}
 
 
@@ -50,7 +58,7 @@ public class JumpingHen : MonoBehaviour {
 		{
 			this.gameObject.rigidbody2D.AddForce (Vector3.up * jumpHeightHen);
 		}
-	
+
 	}
 
 
@@ -80,15 +88,15 @@ public class JumpingHen : MonoBehaviour {
 
 		if (c.gameObject.name.Equals ("LeftTrig"))
 		{
-			jumpHeightHen = Random.Range(250 , 300);
-			henSpeed = 4;
+			jumpHeightHen = Random.Range(150 , 200);
+			henSpeed = 5;
 			left = true;
 		}
 
 		if (c.gameObject.name.Equals ("RightTrig"))
 		{
-			jumpHeightHen = Random.Range(250 , 300);
-			henSpeed = 4;
+			jumpHeightHen = Random.Range(150 , 200);
+			henSpeed = 5;
 			left = false;
 		}
 
@@ -101,7 +109,7 @@ public class JumpingHen : MonoBehaviour {
 		if (u.gameObject.tag.Equals ("Ground")||u.gameObject.tag.Equals ("Egg")||u.gameObject.tag.Equals("Hen")||u.gameObject.name.Equals("LeftTrig")||u.gameObject.name.Equals("RightTrig")||u.gameObject.tag.Equals("Player"))
 		{
 			HenisGrounded = false;
-			jumpHeightHen = Random.Range(80 , 150);
+			jumpHeightHen = Random.Range(30 , 80);
 			henSpeed = 2;
 		}
 	}

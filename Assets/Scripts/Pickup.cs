@@ -5,12 +5,12 @@ public class Pickup : MonoBehaviour {
 
 	public GameObject spawnPoint;
 	public GameObject[] heldItems;
-	public GameObject[] heldHens;
+	//public GameObject[] heldHens;
 	public int currentItems;
 	public int currentHens;
 
 	public int i;
-	public int d;
+	//public int d;
 
 	public bool canPickup;
 
@@ -18,7 +18,7 @@ public class Pickup : MonoBehaviour {
 	void Start () {
 
 		i = 0;
-		d = 0;
+		//d = 0;
 
 		currentItems = 0;
 		currentHens = 0;
@@ -28,7 +28,7 @@ public class Pickup : MonoBehaviour {
 		spawnPoint.transform.position = GameObject.FindGameObjectWithTag("eggSpawn").transform.position;
 
 		heldItems = new GameObject[3]{null, null, null};
-		heldHens = new GameObject[4]{null, null, null, null};
+		//heldHens = new GameObject[4]{null, null, null, null};
 	
 	}
 	
@@ -87,13 +87,15 @@ public class Pickup : MonoBehaviour {
 						foreach (GameObject Hen in GameObject.FindGameObjectsWithTag("Hen")) {
 							
 							if (c.gameObject == Hen) {
-								heldHens [d] = Hen.gameObject; 
-								Hen.gameObject.renderer.enabled = false;
-								Hen.gameObject.collider2D.enabled = false;
+								//heldHens [d] = Hen.gameObject; 
+
+								//Hen.gameObject.renderer.enabled = false;
+								//Hen.gameObject.collider2D.enabled = false;
 								//FJERN ALLE COLLIDERE
+								Destroy (Hen);
 								
 								currentHens++;
-								d++;
+								//d++;
 							}
 					}
 				} 

@@ -26,25 +26,27 @@ public class PlayerMovement : MonoBehaviour {
 		
 		
 		if (Input.GetKey (KeyCode.D)) {
+			transform.eulerAngles = new Vector3(0, 0, 0);
 			transform.Translate (Vector3.right * speed * Time.deltaTime);
 			
-			if (facingRight == false) {
+			/*if (facingRight == false) {
 				facingRight = true;
 				
 				gameObject.transform.localScale = new Vector3 (1, 1, 1);
 				
-			}
+			}*/
 		}
 		
 		if (Input.GetKey (KeyCode.A)) {
-			transform.Translate (Vector3.left * speed * Time.deltaTime);
+			transform.eulerAngles = new Vector3(0, 180, 0);
+			transform.Translate (Vector3.right * speed * Time.deltaTime);
 			
 			
-			if (facingRight == true) {
+			/*if (facingRight == true) {
 				facingRight = false;
 				
 				gameObject.transform.localScale = new Vector3 (-1, 1, 1);                             
-			}
+			}*/
 			
 		}
 		

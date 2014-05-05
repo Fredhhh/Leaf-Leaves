@@ -35,23 +35,6 @@ public class Pickup : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKeyDown(KeyCode.J))
-		{
-			foreach (GameObject Fruit in GameObject.FindGameObjectsWithTag("Fruit"))
-			{
-
-				Fruit.gameObject.renderer.enabled = true;
-				Fruit.gameObject.collider2D.enabled = true;
-
-				currentItems = 0;
-				i = 0;
-				heldItems = new GameObject[3]{null, null, null};
-
-				//GameObject F = (GameObject)Instantiate(Fruit, spawnPoint.transform.position, Quaternion.identity);
-				//F.transform.position = spawnPoint.transform.position;
-			}
-
-		}
 
 		if (currentItems == 3)
 		{
@@ -103,15 +86,29 @@ public class Pickup : MonoBehaviour {
 				if (c.tag.Equals ("Basket")) {
 						if (i == 3) 
 								{
-								if (heldItems [0].name.Equals ("FruitPurple") && heldItems [1].name.Equals ("FruitPurple") && heldItems [2].name.Equals ("FruitYellow")) {
-										Debug.Log ("YES, BASKET COMPLETED!");
+								if (heldItems [0].name.Equals ("cherry") && heldItems [1].name.Equals ("plum") && heldItems [2].name.Equals ("melon")) {
+										Debug.Log ("These are the right fruits!");
 								} 
 									else 
-										Debug.Log ("Wrong fruit!");
+										Debug.Log ("No, I said cherry, plum and melon!");
+									foreach (GameObject Fruit in GameObject.FindGameObjectsWithTag("Fruit"))
+									{
+										
+										Fruit.gameObject.renderer.enabled = true;
+										Fruit.gameObject.collider2D.enabled = true;
+										
+										currentItems = 0;
+										i = 0;
+										heldItems = new GameObject[3]{null, null, null};
+										
+										//GameObject F = (GameObject)Instantiate(Fruit, spawnPoint.transform.position, Quaternion.identity);
+										//F.transform.position = spawnPoint.transform.position;
+									}
+										
 								}
 							else 
 						{
-						Debug.Log ("Complete the basket!");
+						Debug.Log ("Please pick three fruits. A cherry, a plum and a melon!");
 						}
 				}		
 

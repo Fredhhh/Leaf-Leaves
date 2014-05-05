@@ -25,7 +25,7 @@ public class CreateEgg : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		if (GetComponent<PlayerMovement>().isGrounded == true||player.tag.Equals("Egg") == true || player.tag.Equals("Egg2")== true ||player.tag.Equals("Egg3") ==true )
+		if (GetComponent<PlayerMovement>().isGrounded == true||player.tag.Equals("Egg") == true)
 		{
 			canPlace = false;
 		}
@@ -78,40 +78,7 @@ public class CreateEgg : MonoBehaviour {
 				}
 				
 			}
-			foreach (GameObject gO in GameObject.FindGameObjectsWithTag("Egg2")) 
-			{
-				
-				compareTime = gO.GetComponent<EggDestroy>().getTime();
-				
-				if (compareTime>currentTime)
-				{
-					
-					currentTime = compareTime;
-					Destroy (gO);
-					eggCount--;
-					
-					Debug.Log ("tahoi");
-					
-				}
-				
-			}
-			foreach (GameObject gO in GameObject.FindGameObjectsWithTag("Egg3")) 
-			{
-				
-				compareTime = gO.GetComponent<EggDestroy>().getTime();
-				
-				if (compareTime>currentTime)
-				{
-					
-					currentTime = compareTime;
-					Destroy (gO);
-					eggCount--;
-					
-					Debug.Log ("tahoi");
-					
-				}
-				
-			}
+
 
 		}
 

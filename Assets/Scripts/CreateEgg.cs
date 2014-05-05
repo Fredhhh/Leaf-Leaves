@@ -19,13 +19,21 @@ public class CreateEgg : MonoBehaviour {
 
 		eggCount = 0;
 		currentTime = 0;
+	
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
+		if (GetComponent<PlayerMovement>().isGrounded == true||player.tag.Equals("Egg") == true)
+		{
+			canPlace = false;
+		}
 
-
+		else if (eggCount<6)
+		{
+			canPlace = true;
+		}
 
 		if (Input.GetKeyDown(KeyCode.LeftShift))
 		{
@@ -38,7 +46,10 @@ public class CreateEgg : MonoBehaviour {
 				eggCount++;
 			}
 		}
+
 		destroyEgg();
+
+
 
 	} //update
 
@@ -70,10 +81,11 @@ public class CreateEgg : MonoBehaviour {
 
 		}
 
-		if (eggCount<6)
+	/*	if (eggCount<6)
 		{
 			canPlace = true;
 		}
+		*/
 
 
 	}

@@ -22,22 +22,25 @@ public class JumpingHen : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
-		if (transform.position.y > 10 && transform.position.y < 18)
+		//ceiling
+		if (transform.position.y > 5 && transform.position.y < 50)
 		{
 			HenisGrounded = false;
 
 		}
 
-		if (transform.position.x > 22 && transform.position.x < 28)
+		// right wall
+		if (transform.position.x > 22 && transform.position.x < 25)
 		{
 			left = true;
-
+			this.gameObject.rigidbody2D.AddForce (Vector3.up * 100);
 		}
 
-		if (transform.position.x > 1 && transform.position.x < 7)
+		//left wall
+		if (transform.position.x > 2 && transform.position.x < 6)
 		{
 			left = false;
+			this.gameObject.rigidbody2D.AddForce (Vector3.up * 100);
 		}
 
 		if (left)

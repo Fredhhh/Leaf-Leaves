@@ -3,8 +3,10 @@ using System.Collections;
 
 public class Respawn : MonoBehaviour {
 
-	bool hitSpikes;
+	public bool hitSpikes;
 	public GameObject[] spawnPoint;
+
+	public int i;
 
 	//public GameObject spawnPoint;
 
@@ -13,9 +15,11 @@ public class Respawn : MonoBehaviour {
 		// Use this for initialization
 		void Start () {
 
+		i = 0;
+
 		hitSpikes = false;
 
-		spawnPoint = new GameObject[2]{GameObject.FindGameObjectWithTag("Spawning"),GameObject.FindGameObjectWithTag("Spawning2")};
+		spawnPoint = new GameObject[3]{null	, null , null};
 
 		//spawnPoint = GameObject.FindGameObjectsWithTag("Spawning");
 
@@ -26,34 +30,46 @@ public class Respawn : MonoBehaviour {
 		{
 
 
+		
 	
 		}
 
-		void OnTriggerEnter2D(Collider2D collider)
-		{
+	void OnLevelWasLoaded (int level)
+	{
+		Debug.Log(level);
 
-			if (collider.tag.Equals("Death"))
-			{
-				hitSpikes = true;
-				Debug.Log("RESPAWN!");
+		if(level == 0)
 
-				gameObject.transform.position = spawnPoint[0].transform.position;
-				Debug.Log ("HIT");
-				
-			}
+		foreach (GameObject Spawn in GameObject.FindGameObjectsWithTag("Spawning")) {
 
-			if (collider.tag.Equals("Death2"))
-			{
-				hitSpikes = true;
-				Debug.Log("RESPAWN!");
-				
-				gameObject.transform.position = spawnPoint[1].transform.position;
-				Debug.Log ("HIT");
-				
-			}
 		
-		hitSpikes = false;
-		}
+			{
+
+				if (GetComponent<LevelCHANGE>().chooseLevel == true)
+				{
+				Debug.Log (i);
+				spawnPoint [i] = Spawn.gameObject; 
+
+				gameObject.transform.position = spawnPoint[i].transform.position;
+				
+				GetComponent<LevelCHANGE>().chooseLevel = false;
+				i++;
+				}
+	
+				
+				}
+
+			
+			
+	}
+
+		//void OnTriggerEnter2D(Collider2D collider)
+		//{
+
+		
+		//}
 
 
 	}
+	
+}

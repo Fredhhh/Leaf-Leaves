@@ -8,17 +8,20 @@ public class Pickup : MonoBehaviour {
 	//public GameObject[] heldHens;
 	public int currentItems;
 	public int currentHens;
+	public int lvl;
 
 	public int i;
 	//public int d;
 
 	public bool canPickup;
+	public bool fruitIsCorrect;
 
 	// Use this for initialization
 	void Start () {
 
+		lvl = GetComponent<LevelCHANGE>().lvl;
+
 		i = 0;
-		//d = 0;
 
 		currentItems = 0;
 		currentHens = 0;
@@ -28,7 +31,8 @@ public class Pickup : MonoBehaviour {
 		spawnPoint.transform.position = GameObject.FindGameObjectWithTag("eggSpawn").transform.position;
 
 		heldItems = new GameObject[3]{null, null, null};
-		//heldHens = new GameObject[4]{null, null, null, null};
+
+		fruitIsCorrect = false;
 	
 	}
 	
@@ -45,7 +49,6 @@ public class Pickup : MonoBehaviour {
 		{
 			canPickup = true;
 		}
-	
 	}
 	
 
@@ -70,33 +73,50 @@ public class Pickup : MonoBehaviour {
 						foreach (GameObject Hen in GameObject.FindGameObjectsWithTag("Hen")) {
 							
 							if (c.gameObject == Hen) {
-								//heldHens [d] = Hen.gameObject; 
-
-								//Hen.gameObject.renderer.enabled = false;
-								//Hen.gameObject.collider2D.enabled = false;
-								//FJERN ALLE COLLIDERE
+							
 								Destroy (Hen);
 								
 								currentHens++;
-								//d++;
+								
 							}
 					}
 				} 
 
-				if (c.tag.Equals ("Basket")) {
+		if (lvl == 1)
+		{
+
+		if (c.name.Equals ("Sopp"))
+			{
+
+				if (currentHens < 4)
+				{
+					Debug.Log("You need to catch all of the stupid turkeys!");
+				}
+			}
+		}
+
+
+			if (lvl == 2)
+			{
+				if (c.tag.Equals ("marsvin")) {
 						if (i == 3) 
 								{
 								if (heldItems [0].name.Equals ("cherry") && heldItems [1].name.Equals ("plum") && heldItems [2].name.Equals ("melon")) {
-										Debug.Log ("These are the right fruits!");
+									Debug.Log ("These are the right fruits!");
+									fruitIsCorrect = true;
 								} 
-									else 
-										Debug.Log ("No, I said cherry, plum and melon!");
+									
 									foreach (GameObject Fruit in GameObject.FindGameObjectsWithTag("Fruit"))
 									{
 										
 										Fruit.gameObject.renderer.enabled = true;
 										Fruit.gameObject.collider2D.enabled = true;
 										
+										if (fruitIsCorrect == false && i == 3)
+											{
+												Debug.Log ("No, that's wrong, I said cherry, plum and melon!");
+											}
+
 										currentItems = 0;
 										i = 0;
 										heldItems = new GameObject[3]{null, null, null};
@@ -104,17 +124,22 @@ public class Pickup : MonoBehaviour {
 										//GameObject F = (GameObject)Instantiate(Fruit, spawnPoint.transform.position, Quaternion.identity);
 										//F.transform.position = spawnPoint.transform.position;
 									}
-										
+
+				
+									if (fruitIsCorrect == false && i > 0)
+									{
+										Debug.Log ("I said cherry, plum and melon, you need all of the fruits!");
+									}
+					
 								}
-							else 
+						else
 						{
-						Debug.Log ("Please pick three fruits. A cherry, a plum and a melon!");
+							Debug.Log ("Please pick three fruits. A cherry, a plum and a melon!");
 						}
-				}		
-
+					}
+				}
+					
 		}
-
-
-
+	
 } 
 

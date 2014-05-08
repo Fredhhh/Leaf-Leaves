@@ -10,7 +10,7 @@ public class Pickup : MonoBehaviour {
 	public int currentHens;
 	public int lvl;
 
-	public int i;
+	//public int i;
 	//public int d;
 
 	public bool canPickup;
@@ -21,7 +21,7 @@ public class Pickup : MonoBehaviour {
 
 		lvl = GetComponent<LevelCHANGE>().lvl;
 
-		i = 0;
+		//i = 0;
 
 		currentItems = 0;
 		currentHens = 0;
@@ -60,12 +60,12 @@ public class Pickup : MonoBehaviour {
 						foreach (GameObject Fruit in GameObject.FindGameObjectsWithTag("Fruit")) {
 
 								if (c.gameObject == Fruit) {
-										heldItems [i] = Fruit.gameObject; 
+										heldItems [currentItems] = Fruit.gameObject; 
 										Fruit.gameObject.renderer.enabled = false;
 										Fruit.gameObject.collider2D.enabled = false;
 
 										currentItems++;
-										i++;
+										//i++;
 
 								}
 						}
@@ -99,7 +99,7 @@ public class Pickup : MonoBehaviour {
 			if (lvl == 2)
 			{
 				if (c.tag.Equals ("marsvin")) {
-						if (i == 3) 
+						if (currentItems == 3) 
 								{
 								if (heldItems [0].name.Equals ("cherry") && heldItems [1].name.Equals ("plum") && heldItems [2].name.Equals ("melon")) {
 									Debug.Log ("These are the right fruits!");
@@ -112,13 +112,13 @@ public class Pickup : MonoBehaviour {
 										Fruit.gameObject.renderer.enabled = true;
 										Fruit.gameObject.collider2D.enabled = true;
 										
-										if (fruitIsCorrect == false && i == 3)
+										if (fruitIsCorrect == false && currentItems == 3)
 											{
 												Debug.Log ("No, that's wrong, I said cherry, plum and melon!");
 											}
 
 										currentItems = 0;
-										i = 0;
+										//i = 0;
 										heldItems = new GameObject[3]{null, null, null};
 										
 										//GameObject F = (GameObject)Instantiate(Fruit, spawnPoint.transform.position, Quaternion.identity);
@@ -126,7 +126,7 @@ public class Pickup : MonoBehaviour {
 									}
 
 				
-									if (fruitIsCorrect == false && i > 0)
+									if (fruitIsCorrect == false && currentItems > 0)
 									{
 										Debug.Log ("I said cherry, plum and melon, you need all of the fruits!");
 									}

@@ -10,18 +10,39 @@ public class LevelCHANGE : MonoBehaviour {
 	public GameObject Sopp;
 	public GameObject Laks;
 
+<<<<<<< HEAD
+=======
+	public GameObject Egg;
+
+>>>>>>> origin/Fredhhh
 	// Use this for initialization
 	void Start () {
 
 		chooseLevel = false;
 
+<<<<<<< HEAD
 		Marsvin = GameObject.FindGameObjectWithTag("marsvin");
 		Sopp = GameObject.FindGameObjectWithTag("sopp");
 		Laks = GameObject.FindGameObjectWithTag("laks");
+=======
+
+>>>>>>> origin/Fredhhh
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+<<<<<<< HEAD
+		if (GetComponent<Pickup>().currentHens == 4 && lvl == 0)
+		{
+			Marsvin.collider2D.enabled = false;
+			Sopp.collider2D.enabled = true;
+		}
+
+=======
+		Marsvin = GameObject.FindGameObjectWithTag("marsvin");
+		Sopp = GameObject.FindGameObjectWithTag("sopp");
+		Laks = GameObject.FindGameObjectWithTag("laks");
 
 		if (GetComponent<Pickup>().currentHens == 4 && lvl == 0)
 		{
@@ -29,11 +50,13 @@ public class LevelCHANGE : MonoBehaviour {
 			Sopp.collider2D.enabled = true;
 		}
 
+>>>>>>> origin/Fredhhh
 		if (GetComponent<Pickup>().fruitIsCorrect == true && GetComponent<Pickup>().currentHens == 4 && lvl == 0)
 		{
 			Laks.collider2D.enabled = false;
 			Marsvin.collider2D.enabled = true;
 		}
+<<<<<<< HEAD
 	}
 
 	void Awake ()
@@ -47,6 +70,48 @@ public class LevelCHANGE : MonoBehaviour {
 		if (lvl == 1)
 		{
 			gameObject.transform.position = new Vector3 (6 , 1 , 0);
+=======
+	}
+
+	void Awake ()
+	{
+		DontDestroyOnLoad(gameObject);
+	}
+
+	void OnLevelWasLoaded (int level){
+		lvl = level;
+
+		if (lvl == 0)
+		{
+			GetComponent<CreateEgg>().eggCount = 0;
+		}
+
+		if (lvl == 1)
+		{
+			gameObject.transform.position = new Vector3 (6 , 1 , 0);
+
+			GetComponent<CreateEgg>().eggCount = 0;
+		}
+
+		if (lvl == 2)
+		{
+			gameObject.transform.position = new Vector3 (5 , 1 , 11);
+			gameObject.renderer.sortingOrder = 1;
+
+			Egg.renderer.sortingOrder = 0;
+
+			GetComponent<CreateEgg>().eggCount = 0;
+		}
+
+		if (lvl == 3)
+		{
+			gameObject.transform.position = new Vector3 (4 , 1 , 10);
+			gameObject.renderer.sortingOrder = -3;
+			
+			Egg.renderer.sortingOrder = -4;
+			
+			GetComponent<CreateEgg>().eggCount = 0;
+>>>>>>> origin/Fredhhh
 		}
 	}
 
@@ -63,6 +128,11 @@ public class LevelCHANGE : MonoBehaviour {
 			if (c.gameObject.name.Equals("LoadLVL2"))
 			{
 				Application.LoadLevel("Fruitscene");
+			}
+
+			if (c.gameObject.name.Equals("LoadLVL3"))
+			{
+				Application.LoadLevel("Escape");
 			}
 		}
 

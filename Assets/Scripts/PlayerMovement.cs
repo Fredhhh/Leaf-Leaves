@@ -85,11 +85,5 @@ public class PlayerMovement : MonoBehaviour {
 			isGrounded = true;
 		}
 	}
-	
-	
-	
-	/*void OnCollisionEnter2D (Collision2D c)
-	{
 
-	}*/
 }

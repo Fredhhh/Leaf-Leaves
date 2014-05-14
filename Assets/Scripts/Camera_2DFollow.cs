@@ -12,8 +12,6 @@ public float cameraHeight;
 public float Y;
 public float LockedZ;
 
-public int lvl;
-
 void Start ()
 {
 		Player = GameObject.FindGameObjectWithTag("Player");
@@ -23,32 +21,36 @@ void Start ()
 		LockedZ = -14.3f;
 }
 
+//i funksjonen Awake hindrer vi selve spillobjektet (kameraet) å forsvinne når vi laster inn et nytt level
 void Awake ()
 {
 	DontDestroyOnLoad(gameObject);
 }
 
+// i funksjonen LateUpdate bestemmer vi Y-posisjonen til kameraet (høyden) og hvor kameraet skal stå i forhold til karakteren
 void LateUpdate () { 
 
 	Y = cameraHeight + Target.position.y;
   	gameObject.transform.position = new Vector3(Target.position.x, Y, LockedZ); 
 	}
 
+// i funksjonen OnLevelWasLoaded får kameraet en ny z-posisjon (posisjonen innover i 3D-rommet) for hvert nye level som blir lastet inn
 void OnLevelWasLoaded (int level){
-	lvl = level;
 	
-	if (lvl == 2)
+	if (level == 2)
 	{
 	LockedZ = -2.7f;
 	}
 
-	if (lvl == 3)
+	if (level == 3)
 	{
-		LockedZ = 8.7f;
+		LockedZ = -5;
 	}
 
-	else
-			LockedZ = -14.3f;
+	if (level == 0 || level == 1)
+	{
+		LockedZ = -14.3f;
+	}
 
 	}
 
